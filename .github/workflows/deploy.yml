@@ -4,9 +4,15 @@ on:
     branches:
       - main
       - dev
+env:
+  MONGODB_DB_NAME: gha-demo
 jobs:
   test:
-    environment: testing
+    env:
+      MONGODB_CLUSTER_ADDRESS:
+      MONGODB_USERNAME:
+      MONGODB_PASSWORD:
+    # environment: testing
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -29,5 +35,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output information
-        run: |        
+        run: |
           echo "..."
